@@ -33,3 +33,10 @@
     (if (not (am? time))
       (first time)
       (calc-time time))))
+
+(define (american-time time)
+    (cond ((< 0 time 12) (se time 'am))
+	  ((< 12 time 24) (se (- time 12) 'pm))
+	  ((= time 24) '(12 am))
+	  (else '(12 pm))))
+
